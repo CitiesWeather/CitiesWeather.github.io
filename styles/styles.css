@@ -9,8 +9,6 @@
 /*1- General*/
 body{
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='2560' height='1080' preserveAspectRatio='none' viewBox='0 0 2560 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1001%26quot%3b)' fill='none'%3e%3crect width='2560' height='1080' x='0' y='0' fill='rgba(219%2c 195%2c 239%2c 1)'%3e%3c/rect%3e%3cpath d='M0 0L982.33 0L0 151.73z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M0 151.73L982.33 0L1088.25 0L0 168.26z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M0 168.26L1088.25 0L1825.28 0L0 226.67z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M0 226.67L1825.28 0L2251.4 0L0 420.22z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M2560 1080L1833.48 1080L2560 674.22z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M2560 674.22L1833.48 1080L1220.6100000000001 1080L2560 362.64000000000004z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M2560 362.6400000000001L1220.6100000000001 1080L790.9800000000001 1080L2560 149.6400000000001z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M2560 149.6400000000001L790.98 1080L468.09000000000003 1080L2560 146.0900000000001z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1001'%3e%3crect width='2560' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
-  background-size: 200%;
-  background-repeat: no-repeat;
   background-position: 0% 10%;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
@@ -19,7 +17,8 @@ body{
 
 .container{
   text-align: center;
-  max-width: 2000px;
+  max-width: 100%;
+  display: grid;
 }
 
 
@@ -27,6 +26,8 @@ body{
 .textContainer{
   margin-top: 50px;
   display:grid;
+  justify-content: center;
+  justify-self: center;
 }
 
 .titSearch{
@@ -41,6 +42,11 @@ body{
   border: 2;
 }
 
+.suggestions-container{
+  display:grid;
+  justify-content: center;
+}
+
 .suggestion {
   cursor: pointer;
   padding: 5px;
@@ -52,16 +58,27 @@ body{
 }
 
 /*3- Show Weather Info*/
+.weather-info-container{
+  display: grid;
+  width: 1000px;
+}
+
+
 .showCard{
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='2560' height='1080' preserveAspectRatio='none' viewBox='0 0 2560 1080'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1002%26quot%3b)' fill='none'%3e%3crect width='2560' height='1080' x='0' y='0' fill='rgba(62%2c 91%2c 255%2c 0.85)'%3e%3c/rect%3e%3cpath d='M2560 0L1795.65 0L2560 229.8z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1795.65 0L2560 229.8L2560 697.1700000000001L1445.1200000000001 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M1445.12 0L2560 697.1700000000001L2560 883.1200000000001L1364.6399999999999 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M1364.6399999999999 0L2560 883.1200000000001L2560 916.2400000000001L643.0499999999998 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 1080L230.27 1080L0 659.31z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 659.31L230.27 1080L1344.95 1080L0 493.80999999999995z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 493.80999999999995L1344.95 1080L1496.28 1080L0 247.96999999999994z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 247.9699999999999L1496.28 1080L1517.24 1080L0 117.1699999999999z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1002'%3e%3crect width='2560' height='1080' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
   max-height: 400px;
   max-width: 350px;
+  width: 100%;
   margin-top: 20px;
-  display: block;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-self: center;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
 }
 
 .iconWeather{
+  justify-self: center;
   width: 200px;
   height: 200px;
 }
@@ -73,6 +90,47 @@ body{
 .descWeather{
   padding-bottom: 20px;
 }
+
+
+
+.containerCardsDaily{
+  display: flex;
+  padding-top: 50px;
+  justify-content: space-evenly;
+}
+
+
+.showCardDaily{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1073%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(165%2c 138%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c478.895C91.933%2c468.72%2c191.083%2c467.281%2c262.633%2c408.665C331.761%2c352.033%2c328.024%2c247.223%2c375.334%2c171.409C432.711%2c79.463%2c580.013%2c26.022%2c568.676%2c-81.763C557.479%2c-188.215%2c396.271%2c-201.756%2c327.46%2c-283.746C256.905%2c-367.813%2c266.295%2c-519.874%2c165.176%2c-562.539C65.779%2c-604.478%2c-41.233%2c-521.632%2c-141.403%2c-481.575C-232.385%2c-445.192%2c-338.428%2c-421.726%2c-392.048%2c-339.712C-444.338%2c-259.731%2c-417.376%2c-155.518%2c-417.047%2c-59.962C-416.766%2c21.587%2c-407.402%2c98.5%2c-390.264%2c178.228C-368.4%2c279.94%2c-385.27%2c407.761%2c-302.857%2c471.254C-221.207%2c534.159%2c-102.446%2c490.234%2c0%2c478.895' fill='%239676ff'%3e%3c/path%3e%3cpath d='M1440 1039.9189999999999C1532.9470000000001 1041.054 1619.302 1008.712 1704.5430000000001 971.6379999999999 1804.388 928.212 1924.27 900.366 1978.2559999999999 805.813 2032.933 710.049 1992.382 591.723 1984.251 481.749 1975.478 363.097 1995.3020000000001 235.113 1928.768 136.48000000000002 1859.647 34.013000000000034 1739.383-20.899999999999977 1621.065-56.650999999999954 1502.108-92.59500000000003 1377.42-93.04100000000005 1255.949-66.81899999999996 1127.4769999999999-39.08600000000001 978.971-11.947000000000003 906.39 97.625 834.252 206.52800000000002 892.228 350.70500000000004 892.852 481.332 893.374 590.634 854.036 708.12 909.755 802.155 964.434 894.435 1081.704 921.338 1179.578 965.225 1263.684 1002.938 1347.833 1038.7930000000001 1440 1039.9189999999999' fill='%23b49eff'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1073'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+  text-align: center;
+  max-height: 250px;
+  max-width: 200px;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.iconWeatherDaily{
+  justify-self: center;
+  height: 70px;
+  width: 70px;
+}
+
+.tempMaxDaily, .tempMinDaily{
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+}
+.weatherDescDaily, .nameDay{
+  font-size: 14px;
+}
+
+
+
+
 
 
 

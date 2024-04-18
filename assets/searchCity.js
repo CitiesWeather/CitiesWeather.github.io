@@ -1,4 +1,4 @@
-import {displayWeatherData} from "./showWeatherScript.js";
+import {displayActualWeatherData, getDailyWeatherData} from "./showWeatherScript.js";
 import {showMsgError} from "./showMsgError.js";
 const searchCity = document.querySelector(".textCity");
 const suggestionsContainer = document.querySelector(".suggestions-container");
@@ -45,28 +45,47 @@ function displayCitySuggestions(cities){
     suggestionElem.addEventListener('click', () => {
       searchCity.value = `${city.name}, ${city.country}`;
       suggestionsContainer.innerHTML = '';
-      getWeatherInfo();
+      getActualWeatherInfo();
     });
     suggestionsContainer.appendChild(suggestionElem);
   })
 }
 
 
-//GET WEATHER INFO
-async function getWeatherInfo(){
+//GET ACTUAL WEATHER INFO
+async function getActualWeatherInfo(){
   const city = searchCity.value;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error('No se pudo obtener la información del clima.');
+      throw new Error('No se pudo obtener la información del clima actual.');
     }
     const data = await response.json();
-    displayWeatherData(data);
+    displayActualWeatherData(data);
+    getDailyWeatherInfo();
   } catch (error) {
     // console.error(error);
     showMsgError(error);
+  }
+}
+
+
+//GET DAILY WEATHER INFO
+async function getDailyWeatherInfo(){
+  const city = searchCity.value;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=30&appid=${apiKey}&units=metric`;
+
+  try{
+    const response = await fetch(url);
+    if(!response.ok){
+      throw new Error('No se pudo obtener la información del clima de los proximos dias.');
+    }
+    const data = await response.json();
+    getDailyWeatherData(data)
+  }catch(error){
+    showMsgError(error)
   }
 }
 
