@@ -12,6 +12,30 @@ export function displayActualWeatherData(data){
   currentTemp.classList.add("currentTemp");
   currentTemp.innerHTML = `${data.main.temp} °C`;
 
+  const feelsLike = document.createElement("h2");
+  feelsLike.classList.add("feelslike");
+  feelsLike.innerHTML=`Feels: ${data.main.feels_like} °C`;
+
+  const tempActual = document.createElement("div");
+  tempActual.classList.add("tempActual");
+
+  const tempMax = document.createElement("h2");
+  tempMax.classList.add("tempMax");
+  tempMax.innerHTML = `<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-caret-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 14l-6 -6l-6 6h12" /></svg>${data.main.temp_max} °C`;
+
+
+  const tempMin = document.createElement("h2");
+  tempMin.classList.add("tempMin");
+  tempMin.innerHTML = `<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-caret-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 10l6 6l6 -6h-12" /></svg>${data.main.temp_min} °C`;
+
+  const tempMaxMin = document.createElement("div");
+  tempMaxMin.classList.add("tempMaxMin");
+
+
+  const temps = document.createElement("div");
+  temps.classList.add("temps");
+
+
   const iconW = document.createElement("img");
   iconW.classList.add("iconWeather");
   iconW.setAttribute("src", `../img/${(data.weather[0].main)}Icon.png`)
@@ -23,7 +47,13 @@ export function displayActualWeatherData(data){
 
   showCard.appendChild(nomCity);
   showCard.appendChild(iconW);
-  showCard.appendChild(currentTemp);
+  tempActual.appendChild(currentTemp);
+  tempActual.appendChild(feelsLike);
+  temps.appendChild(tempActual);
+  tempMaxMin.appendChild(tempMax);
+  tempMaxMin.appendChild(tempMin);
+  temps.appendChild(tempMaxMin);
+  showCard.appendChild(temps);
   showCard.appendChild(weatherDesc);
   weatherShow.appendChild(showCard);
   
@@ -38,7 +68,6 @@ export function displayActualWeatherData(data){
 
 export function getDailyWeatherData(data){
   const actualDate = (data.list[0].dt_txt).slice(0,-9)
-  let date = new Date(actualDate);
   let lastDate = 0
   let tempMinDay = 0
   let tempMaxDay = 0
@@ -46,7 +75,7 @@ export function getDailyWeatherData(data){
 
   data.list.forEach(dataHsDay => {
 
-    if((dataHsDay.dt_txt).slice(0,-9) != actualDate && (dataCitiesMap.size <= 3)){
+    if((dataHsDay.dt_txt).slice(0,-9) != actualDate && (dataCitiesMap.size < 3)){
 
       if((dataHsDay.dt_txt).slice(0,-9) != lastDate){
         lastDate = (dataHsDay.dt_txt).slice(0,-9)

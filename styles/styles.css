@@ -4,6 +4,7 @@
     2- Search Bar
     3- Show Weather Info
     4- Error Msg
+    5- Media queries
 */
 
 /*1- General*/
@@ -19,27 +20,38 @@ body{
   text-align: center;
   max-width: 100%;
   display: grid;
+  justify-content: center;
+  justify-items: center;
+}
+
+
+.logo{
+  width: 25%;
+  justify-self: center;
+  padding-top: 20px;
 }
 
 
 /*2- Search Bar*/
 .textContainer{
   margin-top: 50px;
-  display:grid;
-  justify-content: center;
+  /* display:grid; --------ELIMINAR????
+  justify-content: center; --------ELIMINAR????*/
   justify-self: center;
+  width: 25%;
 }
 
-.titSearch{
+/* .titSearch{
   font-size: 68px;
   margin-bottom: 20px;
-}
+} */  /*-----ELIMINAR------*/
 
 .textCity{
   height: 25px;
   font-size: 16px;
   text-align: center;
-  border: 2;
+  width: 100%;
+  /* width: 30rem; --------ELIMINAR???? */
 }
 
 .suggestions-container{
@@ -57,10 +69,14 @@ body{
   background: rgba(232, 226, 239, 0.85);
 }
 
+
+
 /*3- Show Weather Info*/
 .weather-info-container{
   display: grid;
-  width: 1000px;
+  width: 100%;
+  /* width: 1000px;   --------ELIMINAR????*/
+  justify-self: center;
 }
 
 
@@ -91,6 +107,22 @@ body{
   padding-bottom: 20px;
 }
 
+.temps{
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  justify-self: center;
+}
+.tempMaxMin{
+  align-self: center;
+}
+
+.feelslike, .tempMax, .tempMin{
+  color:#323232;
+}
+
+
+
 
 
 .containerCardsDaily{
@@ -118,7 +150,7 @@ body{
   width: 70px;
 }
 
-.tempMaxDaily, .tempMinDaily{
+.tempMaxDaily, .tempMinDaily, .tempMax, .tempMin, .feelslike{
   display: flex;
   font-size: 16px;
   align-items: center;
@@ -144,5 +176,189 @@ body{
   margin: 15px;
   font-size: 12px;
 }
+
+
+
+
+
+/*5- Media queries*/
+@media (max-width: 1900px) {
+  .textContainer{
+    width: 25rem;
+  }
+  .logo{
+    width: 25%;
+  }
+
+}
+
+@media (max-width: 1400px){
+  .textContainer{
+    margin-top: 25px;
+    width: 15rem;
+    height: 20px;
+    font-size: 14px;
+  }
+
+  .textCity{
+    font-size: 14px;
+  }
+
+  .showCard{
+    height: 300px;
+    width: 250px;
+  }
+
+  .iconWeather{
+    width: 100px;
+    height: 100px;
+  }
+
+  .nomCity{
+    font-size: 14px;
+  }
+
+  .temps{
+    width: 200px;
+  }
+
+  .currentTemp{
+    font-size: 20px;
+  }
+
+  .tempMax, .tempMin{
+    font-size: 12px;
+  }
+
+  .feelslike{
+    font-size: 12px;
+  }
+
+  .descWeather{
+    font-size: 14px;
+  }
+
+
+
+
+  .showCardDaily{
+    height: 200px;
+    width: 150px;
+  }
+
+  .nameDay{
+    font-size: 12px;
+  }
+
+  .iconWeatherDaily{
+    height: 40px;
+    width: 40px;
+  }
+
+  .tempMaxDaily, .tempMinDaily{
+    font-size: 14px;
+  }
+
+  .weatherDescDaily{
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 440px){
+  .logo{
+    width: 50%;
+  }
+}
+
+
+@media (max-width: 500px){
+
+  .logo{
+    width: 50%;
+  }
+
+  .textContainer{
+    margin-top: 10px;
+    width: 10rem;
+    height: 20px;
+  }
+
+  .textCity{
+    font-size: 12px;
+    height: 15px;
+  }
+
+  .showCard{
+    height: 200px;
+    width: 150px;
+  }
+
+  .iconWeather{
+    width: 50px;
+    height: 50px;
+  }
+
+  .nomCity{
+    font-size: 10px;
+  }
+
+  .temps{
+    width: 140px;
+  }
+
+  .currentTemp{
+    font-size: 14px;
+  }
+
+  .tempMax, .tempMin{
+    font-size: 9px;
+  }
+
+  .icon-tabler-caret-up, .icon-tabler-caret-down{
+    height: 15px;
+    width: 15px;
+  }
+
+  .feelslike{
+    font-size:9px;
+  }
+
+  .descWeather{
+    font-size: 10px;
+  }
+
+
+
+  .containerCardsDaily{
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .showCardDaily{
+    height: 150px;
+    width: 100px;
+  }
+  
+  .nameDay{
+    font-size: 10px;
+  }
+
+  .iconWeatherDaily{
+    height: 20px;
+    width: 20px;
+  }
+
+  .tempMaxDaily, .tempMinDaily{
+    font-size: 12px;
+  }
+
+  .weatherDescDaily{
+    font-size: 10px;
+  }
+}
+
+
 
 
