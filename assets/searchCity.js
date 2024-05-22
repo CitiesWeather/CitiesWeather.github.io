@@ -20,9 +20,7 @@ searchCity.addEventListener("input", ()=>{
 
 
 async function getCitySuggestions(city){
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`;
-
-  console.log(url)
+  const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`;
 
   try{
     const response = await fetch(url);
