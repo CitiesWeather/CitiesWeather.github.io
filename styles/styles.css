@@ -263,6 +263,11 @@ body{
     font-size: 12px;
   }
 
+
+  footer p{
+    font-size: 12px;
+  }
+
 }
 
 @media (max-width: 440px){
@@ -355,6 +360,10 @@ body{
   }
 
   .weatherDescDaily{
+    font-size: 10px;
+  }
+
+  footer p{
     font-size: 10px;
   }
 }
